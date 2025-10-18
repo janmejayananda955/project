@@ -6,6 +6,7 @@ import InvitationCardImage from "./InvitationCard.jpg"; // Invitation card image
 function App() {
   const [name, setName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showFinalCard, setShowFinalCard] = useState(false);
 
   // Initialize AOS
   useEffect(() => {
@@ -23,12 +24,16 @@ function App() {
     event.preventDefault();
     if (name.trim() !== "") {
       setIsSubmitted(true);
+      // Show the final card after a delay
+      setTimeout(() => {
+        setShowFinalCard(true);
+      }, 5000);
     }
   };
 
   return (
     <div
-      className="min-h-screen absolute w-full flex flex-col items-center justify-center gap-12 p-6 bg-cover bg-center bg-fixed"
+      className="min-h-screen absolute w-full flex flex-col items-center justify-center gap-12 p-6 bg-cover bg-center bg-fixed "
       // style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* Form Container */}
@@ -46,7 +51,7 @@ function App() {
             value={name}
             onChange={handleNameChange}
             className={`w-full max-w-xs p-3 rounded-lg bg-gray-800/50 text-white border border-purple-600 focus:ring-2 focus:ring-purple-400 focus:outline-none mb-6
-              ${isSubmitted ? "hidden z-20" : ""}
+              ${isSubmitted ? "hidden" : ""}
             `}
             aria-label="Your Name"
           />
@@ -60,11 +65,9 @@ function App() {
       </div>
 
       {/* Invitation Card - Renders Conditionally */}
-      {/* setTimeout(() => {
-        
-      {isSubmitted && <InvitationCard name={name} />}
-      }, 3000); */}
-      {isSubmitted && <ShowCard name={name} />}
+
+      {isSubmitted && !showFinalCard && <InvitationCard name={name} />}
+      {showFinalCard && <ShowCard name={name} />}
     </div>
   );
 }
@@ -98,8 +101,15 @@ function InvitationCard({ name }) {
 
 function ShowCard() {
   return (
-    <div className="flex justify-center items-center m-2 bg-no-repeat absolute object-fill p-4">
-      <img src={InvitationCardImage} alt="" />
+    <div className="flex justify-center items-center m-2 bg-no-repeat absolute object-fill p-2 ">
+       <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-300 to-purple-600 animate-gradient-x -z-10"></div>
+
+      <img
+        data-aos="zoom-in"
+        src={InvitationCardImage}
+        alt=""
+        className="rounded-b-md border border-purple-500/50 shadow-2xl shadow-purple-500/20"
+      />
     </div>
   );
 }
