@@ -27,7 +27,7 @@ function App() {
       // Show the final card after a delay
       setTimeout(() => {
         setShowFinalCard(true);
-      }, 5000);
+      }, 3000);
     }
   };
 
