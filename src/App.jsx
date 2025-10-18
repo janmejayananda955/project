@@ -30,6 +30,9 @@ function App() {
       }, 3000);
     }
   };
+  // function Capitalize(name){
+  //   return name.charAt(0).toUpperCase() + name.slice(1);
+  // }
 
   return (
     <div
@@ -37,6 +40,7 @@ function App() {
       // style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* Form Container */}
+      {isSubmitted ? "hidden" :
       <div
         className="w-full max-w-lg bg-black/60 backdrop-blur-sm rounded-xl border border-purple-500/50 shadow-2xl shadow-purple-500/20 p-8"
         data-aos="fade-down"
@@ -51,7 +55,7 @@ function App() {
             value={name}
             onChange={handleNameChange}
             className={`w-full max-w-xs p-3 rounded-lg bg-gray-800/50 text-white border border-purple-600 focus:ring-2 focus:ring-purple-400 focus:outline-none mb-6
-              ${isSubmitted ? "hidden" : ""}
+              
             `}
             aria-label="Your Name"
           />
@@ -63,6 +67,7 @@ function App() {
           </button>
         </form>
       </div>
+}
 
       {/* Invitation Card - Renders Conditionally */}
 
@@ -85,7 +90,7 @@ function InvitationCard({ name }) {
 
       {/* Welcome Message */}
       <h2 className="text-2xl font-bold text-purple-200 mb-4">
-        Welcome, {name}!
+        Welcome, {name.charAt(0).toUpperCase() + name.slice(1)}!
       </h2>
 
       <p className="text-gray-300 mb-6">
@@ -101,11 +106,11 @@ function InvitationCard({ name }) {
 
 function ShowCard() {
   return (
-    <div className="flex justify-center items-center m-2 bg-no-repeat absolute object-fill p-2 ">
+    <div className="flex justify-center items-center m-2 bg-no-repeat absolute object-fill p-2"  data-aos="flip-right">
        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-300 to-purple-600 animate-gradient-x -z-10"></div>
 
       <img
-        data-aos="zoom-in"
+       
         src={InvitationCardImage}
         alt=""
         className="rounded-b-md border border-purple-500/50 shadow-2xl shadow-purple-500/20"
