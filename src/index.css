@@ -1,0 +1,16 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@400;700&display=swap');
+
+/* Import AOS styles */
+@import 'aos/dist/aos.css';
+
+/* Import Tailwind directives */
+@import "tailwindcss";
+/* stylelint-disable at-rule-no-unknown */
+
+/* stylelint-enable at-rule-no-unknown */
+
+body {
+  font-family:  font-montserrat;
+  background: #000;
+}
