@@ -84,7 +84,7 @@ function InvitationCard({ name }) {
       data-aos="fade-up" // AOS animation for the card
     >
       {/* Main Title with Neon Effect */}
-      <h1 className="font-permanent-marker text-4xl text-fuchsia-300 text-shadow-neon animate-glow mb-4">
+      <h1 className="butcherman-regular text-4xl text-fuchsia-300 text-shadow-neon animate-glow mb-4">
         FRESHTIVAL
       </h1>
 
