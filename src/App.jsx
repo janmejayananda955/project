@@ -94,7 +94,7 @@ function InvitationCard({ name }) {
       </h2>
 
       <p className="text-gray-300 mb-6">
-        You're invited to a night of fun, music, and celebration.
+        You're invited to a memorable celebration filled with fun, joy, and excitement.
       </p>
 
       <p className="text-purple-300 italic opacity-80 mt-6">
